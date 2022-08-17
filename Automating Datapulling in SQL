@@ -1,6 +1,25 @@
-#import libraries
+#Create Database
+##NOTE, for longest time I was getting the following error when trying to import my .csv file: Error Code: 1290. 
+The MySQL server is running with the --secure-file-priv option so it cannot execute this statement. To solve that. I had to do the following##
+## one thing that I also had to do was change settings and add a line of code to my SQL settings##
 
-import pandas as pd
-import numpy as np
-import os
-import psycopg2
+CREATE DATABASE Dustin;
+CREATE TABLE newtablewithmartin (FirstName CHAR (20),
+							LastName CHAR (20));
+						
+select * from newtablewithmartin; 
+
+
+LOAD DATA LOCAL INFILE '/Users/dustinhoye/Desktop/SQL/tablewithwill.csv'
+#NOTE the code above is for a MAC. It will chagne on a PC
+
+
+
+LOAD DATA LOCAL INFILE '/Users/dustinhoye/Desktop/SQL/tablewithwill.csv'
+INTO TABLE newtablewithmartin
+COLUMNS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+
+SELECT * FROM newtablewithmartin;
